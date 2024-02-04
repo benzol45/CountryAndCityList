@@ -38,3 +38,5 @@ Should you need any further information, please do not hesitate to contact the s
 
 Swagger UI is available by the link: http://localhost:8100/swagger-ui/index.html  
 If you change port - change it in url also
+
+Add "localhost" profile for enabling additional hibernate/sql logging
