@@ -1,0 +1,35 @@
+databaseChangeLog:
+  - changeSet:
+      id: create_cities_table
+      author: Michail Kalinin
+      changes:
+        - createSequence:
+            sequenceName: city_id_seq
+            startValue: 1
+            incrementBy: 1
+        - createTable:
+            tableName: cities
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  defaultValueSequenceNext: city_id_seq
+                  constraints:
+                    nullable: false
+                    unique: true
+                    primaryKey: true
+              - column:
+                  name: country_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_city_country_id
+                    referencedColumnNames: id
+                    referencedTableName: countries
+                    onDelete: CASCADE
+              - column:
+                  name: name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+                    unique: true

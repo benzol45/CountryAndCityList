@@ -1,0 +1,35 @@
+databaseChangeLog:
+  - changeSet:
+      id: create_users_table
+      author: Michail Kalinin
+      changes:
+        - createSequence:
+            sequenceName: user_id_seq
+            startValue: 1
+            incrementBy: 1
+        - createTable:
+            tableName: users
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  defaultValueSequenceNext: user_id_seq
+                  constraints:
+                    nullable: false
+                    unique: true
+                    primaryKey: true
+              - column:
+                  name: login
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: password
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: role
+                  type: varchar(255)
+                  constraints:
+                    nullable: false

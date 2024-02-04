@@ -1,0 +1,21 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/changesets/2024-02-02-01-Countries-table-creation.yaml
+  - include:
+      file: db/changelog/changesets/2024-02-02-02-Cities-table-creation.yaml
+  - include:
+      file: db/changelog/changesets/2024-02-02-03-Logos-table-creation.yaml
+  - include:
+      file: db/changelog/changesets/2024-02-02-04-User-table-creation.yaml
+
+
+
+
+
+
+
+
+
+
+
+
