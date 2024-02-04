@@ -25,7 +25,7 @@ import java.util.Map;
 public class LogoController {
     private final LogoService logoService;
 
-    @GetMapping("/{id}")
+    @GetMapping("/{id}")    //TODO uuid validator
     @Operation(summary = "Get logo",
             description = "Get logo file by id")
     public ResponseEntity<byte[]> getLogoById(@PathVariable(name = "id") String id) {
@@ -46,7 +46,7 @@ public class LogoController {
     }
 
     @SecurityRequirement(name = "basic")
-    @PatchMapping(value = "/{id}", consumes = "multipart/form-data")
+    @PatchMapping(value = "/{id}", consumes = "multipart/form-data")    //TODO uuid validator
     @Operation(summary = "Edit the logo",
             description = "Only for EDITOR role")
     public ResponseEntity getChangeLogo(@PathVariable(name = "id") String id,
