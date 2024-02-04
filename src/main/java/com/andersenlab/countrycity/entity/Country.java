@@ -1,6 +1,7 @@
 package com.andersenlab.countrycity.entity;
 
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -28,14 +29,12 @@ public class Country {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    //TODO индекс на поле
-    //TODO уникально в базе
+    //TODO проследить использование и возможно добавить индекс на поле
     @NotNull
     @NotBlank
     private String name;
 
-    //TODO прописать установку на другой стороне
-    @OneToMany(mappedBy = "country")
+    @OneToMany(mappedBy = "country", cascade = CascadeType.REMOVE)
     @EqualsAndHashCode.Exclude
     private List<City> cities;
 }

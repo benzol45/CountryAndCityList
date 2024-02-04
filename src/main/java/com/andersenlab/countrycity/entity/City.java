@@ -1,5 +1,6 @@
 package com.andersenlab.countrycity.entity;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -34,15 +35,13 @@ public class City {
     @NotBlank
     private String name;
 
-    //TODO как оно - если удаляется родитель удалять и детей
     @ManyToOne
     @JoinColumn(name = "country_id", nullable = false)
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     private Country country;
 
-    //TODO прописать установку на другой стороне
-    @OneToMany(mappedBy = "city")
+    @OneToMany(mappedBy = "city", cascade = CascadeType.REMOVE)
     @EqualsAndHashCode.Exclude
     private List<Logo> logos;
 }
