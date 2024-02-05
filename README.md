@@ -40,3 +40,7 @@ Swagger UI is available by the link: http://localhost:8100/swagger-ui/index.html
 If you change port - change it in url also
 
 Add "localhost" profile for enabling additional hibernate/sql logging
+
+## Application development notes
+
+For starting integration tests you should have Docker engine because if using TestContainer with PostgreSql
