@@ -43,4 +43,4 @@ Add "localhost" profile for enabling additional hibernate/sql logging
 
 ## Application development notes
 
-For starting integration tests you should have Docker engine because if using TestContainer with PostgreSql
+For starting integration tests you should have Docker engine because of using TestContainer with PostgreSql
