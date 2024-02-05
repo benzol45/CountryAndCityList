@@ -70,6 +70,30 @@ databaseChangeLog:
               - column:
                   name: name
                   value: "Moscow"
+        - insert:
+            tableName: logos
+            columns:
+              - column:
+                  name: id
+                  value: "ae246489-9b8f-4117-ae12-3117d1ecd7ed"
+              - column:
+                  name: city_id
+                  value: 1001
+              - column:
+                  name: filename
+                  value: "ae246489-9b8f-4117-ae12-3117d1ecd7ed.JPG"
+        - insert:
+            tableName: logos
+            columns:
+              - column:
+                  name: id
+                  value: "95609ed0-af00-4e95-a9ca-dd4e948b4e32"
+              - column:
+                  name: city_id
+                  value: 1001
+              - column:
+                  name: filename
+                  value: "95609ed0-af00-4e95-a9ca-dd4e948b4e32.PNG"
 
 
 
