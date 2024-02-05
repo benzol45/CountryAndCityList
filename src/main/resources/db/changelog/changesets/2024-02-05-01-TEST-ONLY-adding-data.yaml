@@ -1,0 +1,75 @@
+databaseChangeLog:
+  - changeSet:
+      id: TEST_ONLY_added_country
+      context: "@integration_test"
+      author: Michail Kalinin
+      changes:
+        - insert:
+            tableName: countries
+            columns:
+              - column:
+                  name: id
+                  value: 100
+              - column:
+                  name: name
+                  value: "USA"
+        - insert:
+            tableName: countries
+            columns:
+              - column:
+                  name: id
+                  value: 101
+              - column:
+                  name: name
+                  value: "Russia"
+        - insert:
+            tableName: cities
+            columns:
+              - column:
+                  name: id
+                  value: 1000
+              - column:
+                  name: country_id
+                  value: 100
+              - column:
+                  name: name
+                  value: "St. Petersburg"
+        - insert:
+            tableName: cities
+            columns:
+              - column:
+                  name: id
+                  value: 1001
+              - column:
+                  name: country_id
+                  value: 100
+              - column:
+                  name: name
+                  value: "Chicago"
+        - insert:
+            tableName: cities
+            columns:
+              - column:
+                  name: id
+                  value: 1002
+              - column:
+                  name: country_id
+                  value: 101
+              - column:
+                  name: name
+                  value: "St. Petersburg"
+        - insert:
+            tableName: cities
+            columns:
+              - column:
+                  name: id
+                  value: 1003
+              - column:
+                  name: country_id
+                  value: 101
+              - column:
+                  name: name
+                  value: "Moscow"
+
+
+
