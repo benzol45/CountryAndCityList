@@ -3,8 +3,10 @@ package com.andersenlab.countrycity.controller;
 import com.andersenlab.countrycity.service.LogoService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.hibernate.validator.constraints.UUID;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -25,10 +27,10 @@ import java.util.Map;
 public class LogoController {
     private final LogoService logoService;
 
-    @GetMapping("/{id}")    //TODO uuid validator
+    @GetMapping("/{id}")
     @Operation(summary = "Get logo",
             description = "Get logo file by id")
-    public ResponseEntity<byte[]> getLogoById(@PathVariable(name = "id") String id) {
+    public ResponseEntity<byte[]> getLogoById(@PathVariable(name = "id") @Valid @UUID String id) {
         log.info("Received GET /logos/{}", id);
         byte[] bytes = logoService.getImageAsByteArray(id);
 
@@ -46,10 +48,10 @@ public class LogoController {
     }
 
     @SecurityRequirement(name = "basic")
-    @PatchMapping(value = "/{id}", consumes = "multipart/form-data")    //TODO uuid validator
+    @PatchMapping(value = "/{id}", consumes = "multipart/form-data")
     @Operation(summary = "Edit the logo",
             description = "Only for EDITOR role")
-    public ResponseEntity getChangeLogo(@PathVariable(name = "id") String id,
+    public ResponseEntity getChangeLogo(@PathVariable(name = "id") @Valid @UUID String id,
                                         @RequestPart("logo") MultipartFile file) {
         log.info("Received PATCH /logos/{} with new logo of {} bytes", id, file.getSize());
 
