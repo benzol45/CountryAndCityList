@@ -53,12 +53,6 @@ public class CityController {
         return cityService.getUniqueCityNames();
     }
 
-//    @GetMapping("/by-country-name") //TODO наверно слить в одно
-//    public List<CityDTO> getCitiesByCountryName(@RequestParam(name = "name",required = true) String countryName) {
-//        log.info("Received GET /cities/by-country-name with countryName={}", countryName);
-//        return cityService.getByCountryName(countryName);
-//    }
-
     @GetMapping
     @Operation(summary = "Get all cities with filters",
             description = "Get all cities by country name & Search by the city name")
