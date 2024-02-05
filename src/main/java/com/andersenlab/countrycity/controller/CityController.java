@@ -65,7 +65,7 @@ public class CityController {
     public ResponseEntity<List<CityDTO>> getCitiesBySomeName(@RequestParam(name = "name", required = false) String cityName,
                                                              @RequestParam(name = "country_name", required = false) String countryName) {
 
-        log.info("Received GET /cities/by-country-name with cityName={}, countryName={}", cityName, countryName);
+        log.info("Received GET /cities with cityName={}, countryName={}", cityName, countryName);
         if ((cityName == null && countryName == null) || (cityName != null && countryName != null)) {
             return ResponseEntity.badRequest().build();
         }
