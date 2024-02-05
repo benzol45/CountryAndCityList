@@ -15,9 +15,9 @@ public interface CityRepository extends JpaRepository<City, Long> {
     @Query("SELECT DISTINCT c.name FROM City c")
     List<String> findUniqueCityNames();
 
-    List<City> findAllByName(String name);
+    List<City> findAllByNameIgnoreCase(String name);
 
-    List<City> findAllByCountryName(String countryName);
+    List<City> findAllByCountryNameIgnoreCase(String countryName);
 
     @EntityGraph(type = EntityGraph.EntityGraphType.FETCH, attributePaths = "logos")
     Page<City> findAll(Pageable pageable);

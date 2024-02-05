@@ -39,14 +39,14 @@ public class CityServiceImpl implements CityService {
     @Override
     @Transactional(readOnly = true)
     public List<CityDTO> getByCountryName(String countryName) {
-        return cityRepository.findAllByCountryName(countryName)
+        return cityRepository.findAllByCountryNameIgnoreCase(countryName)
                 .stream().map(CityMapper::toDto).toList();
     }
 
     @Override
     @Transactional(readOnly = true)
     public List<CityDTO> getByCityName(String cityName) {
-        return cityRepository.findAllByName(cityName)
+        return cityRepository.findAllByNameIgnoreCase(cityName)
                 .stream().map(CityMapper::toDto).toList();
     }
 
